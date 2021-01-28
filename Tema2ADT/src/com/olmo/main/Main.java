@@ -1,5 +1,9 @@
 package com.olmo.main;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.sql.*;
 
 public class Main {
@@ -13,8 +17,23 @@ public class Main {
 
 			// Preparamos la consulta
 			Statement sentencia = conexion.createStatement();
+			
+			File file = new File("C:\\Users\\OLMO\\git\\Tema2ADT\\crearTablas.sql");
 			String sql = "SELECT * FROM Autores";
+			try {
+				BufferedReader br =  new BufferedReader(new FileReader(file));
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			String str ;
+			StringBuilder strBuilder= new StringBuilder();
+			
 			ResultSet resul = sentencia.executeQuery(sql);
+			
+			
+			
 			// Recorremos el resultado para visualizar cada fila
 			// Se hace un bucle mientras haya registros y se van visualizando
 			while (resul.next()) {
