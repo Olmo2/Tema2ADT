@@ -6,22 +6,26 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
+import java.util.Scanner;
 
 public class Main {
+	
+	
+	static Statement sentencia;
 	public static void main(String[] args) {
 		try {
 			// Cargar el driver
 			Class.forName("com.mysql.jdbc.Driver");
 
 			// Establecemos la conexion con la BD
-			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/ejemplo?useSSL=false", "root", "root");
+			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/ejemplo?useSSL=false&allowMultiQueries=true", "root", "root");
 			
 
 			// Preparamos la consulta
-			Statement sentencia = conexion.createStatement();
+			sentencia = conexion.createStatement();
 			
 			String linea = null;
-			File file = new File("C:\\Users\\OLMO\\Desktop\\crearTablas.sql");
+			File file = new File("C:\\Users\\Dams2\\Desktop\\crearTablas.sql");
 			String sql = "SELECT * FROM Autores";
 			BufferedReader br= null;
 			try {
@@ -50,32 +54,32 @@ public class Main {
 			
 			
 			/*Ejercico 1*/
-			 //sentencia.executeUpdate(borrarDatos("departamentos"));
+			 sentencia.executeUpdate(consulta);
 			 
-			 /*Ejercicio 2*/
-			 System.out.println(insertarDatos("departamentos", 1 ,"Ventas","Oviedo"));
-			 System.out.println(modificarDatos("departamentos", 1 ,"Compras","Gijon"));
-			 System.out.println(borrarDatos("departamentos"));
-			 
-			 /*Ejercicio 3*/
-			 PreparedStatement stmt= conexion.prepareStatement("insert into departamentos values(?,?,?)");  
-			 stmt.setInt(1,1);//1 specifies the first parameter in the query  
-			 stmt.setString(2,"Ratan");  
-			 stmt.setString(3,"carloso"); 
-			 stmt.executeUpdate();
-			 
-			 /*Ejercicio 4*/
-			 CallableStatement statement = conexion.prepareCall("{call peruano()}");
-			 ResultSet resul = statement.executeQuery();
+//			 /*Ejercicio 2*/
+//			 System.out.println(insertarDatos("departamentos", 1 ,"Ventas","Oviedo"));
+//			 System.out.println(modificarDatos("departamentos", 1 ,"Compras","Gijon"));
+//			 System.out.println(borrarDatos("departamentos"));
+//			 
+//			 /*Ejercicio 3*/
+//			 PreparedStatement stmt= conexion.prepareStatement("insert into departamentos values(?,?,?)");  
+//			 stmt.setInt(1,1);//1 specifies the first parameter in the query  
+//			 stmt.setString(2,"Ratan");  
+//			 stmt.setString(3,"carloso"); 
+//			 stmt.executeUpdate();
+//			 
+//			 /*Ejercicio 4*/
+//			 CallableStatement statement = conexion.prepareCall("{call peruano()}");
+//			 ResultSet resul = statement.executeQuery();
 			
 			
 			
 			// Recorremos el resultado para visualizar cada fila
 			// Se hace un bucle mientras haya registros y se van visualizando
-			while (resul.next()) {
-				System.out.printf("%d, %s, %s %n", resul.getInt(1), resul.getString(2), resul.getString(3));
-			}
-			System.out.println("NÚMERO DE FILAS: " + resul.getRow());
+//			while (resul.next()) {
+//				System.out.printf("%d, %s, %s %n", resul.getInt(1), resul.getString(2), resul.getString(3));
+//			}
+//			System.out.println("NÚMERO DE FILAS: " + resul.getRow());
 			
 //			resul.beforeFirst();
 //			while(resul.next()) {
@@ -102,9 +106,30 @@ public class Main {
 	}// fin de main
 	
 	
-	public static String insertarDatos(String tabla , int dept_no, String dnombre, String loc) {
-		String str = "Insert into " +tabla +"(dept_no,dnombre,loc)  values(" + dept_no + ",'" + dnombre + "','" + loc + "')" ;
-		return str;
+	public static String insertarDatos() {
+		String consulta;
+		String tabla;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Elige la tabla");
+		
+		
+		tabla=sc.next();
+		
+		consulta="Select * from " + tabla + ";";
+		try {
+			System.out.println(sentencia.executeUpdate(consulta));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		return consulta;
+		
+		
 	}
 	public  static String borrarDatos(String tabla) {
 		String str = "Drop table " + tabla + ";" ;
