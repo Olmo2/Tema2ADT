@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Libros>
+	<libro>
+		<ID>1</ID>
+		<titulo>J.D. Salinger</titulo>
+		<autor_id>USA</autor_id>
+	</libro>
+	<libro>
+		<ID>2</ID>
+		<titulo>F. Scott. Fitzgerald</titulo>
+		<autor_id>USA</autor_id>
+	</libro>
+	<libro>
+		<ID>3</ID>
+		<titulo>Jane Austen</titulo>
+		<autor_id>UK</autor_id>
+	</libro>
+	<libro>
+		<ID>4</ID>
+		<titulo>Scott Hanselman</titulo>
+		<autor_id>USA</autor_id>
+	</libro>
+	<libro>
+		<ID>5</ID>
+		<titulo>Jason N. Gaylord</titulo>
+		<autor_id>USA</autor_id>
+	</libro>
+	<libro>
+		<ID>6</ID>
+		<titulo>Pranav Rastogi</titulo>
+		<autor_id>India</autor_id>
+	</libro>
+	<libro>
+		<ID>7</ID>
+		<titulo>Todd Miranda</titulo>
+		<autor_id>USA</autor_id>
+	</libro>
+	<libro>
+		<ID>8</ID>
+		<titulo>Christian Wenz</titulo>
+		<autor_id>USA</autor_id>
+	</libro>
+</Libros>

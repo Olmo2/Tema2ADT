@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Autores>
+	<autor>
+		<ID>1</ID>
+		<nombre>J.D. Salinger</nombre>
+		<pais>USA</pais>
+	</autor>
+	<autor>
+		<ID>2</ID>
+		<nombre>F. Scott. Fitzgerald</nombre>
+		<pais>USA</pais>
+	</autor>
+	<autor>
+		<ID>3</ID>
+		<nombre>Jane Austen</nombre>
+		<pais>UK</pais>
+	</autor>
+	<autor>
+		<ID>4</ID>
+		<nombre>Scott Hanselman</nombre>
+		<pais>USA</pais>
+	</autor>
+	<autor>
+		<ID>5</ID>
+		<nombre>Jason N. Gaylord</nombre>
+		<pais>USA</pais>
+	</autor>
+	<autor>
+		<ID>6</ID>
+		<nombre>Pranav Rastogi</nombre>
+		<pais>India</pais>
+	</autor>
+	<autor>
+		<ID>7</ID>
+		<nombre>Todd Miranda</nombre>
+		<pais>USA</pais>
+	</autor>
+	<autor>
+		<ID>8</ID>
+		<nombre>Christian Wenz</nombre>
+		<pais>USA</pais>
+	</autor>
+</Autores>
