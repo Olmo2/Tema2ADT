@@ -31,7 +31,7 @@ public class Main {
 			sentencia = conexion.createStatement();
 
 			String linea = null;
-			File file = new File("C:\\Users\\olmo\\Desktop\\libros.sql");
+			File file = new File("libros.sql");
 			String sql = "SELECT * FROM Autores";
 			BufferedReader br = null;
 			try {
@@ -55,47 +55,49 @@ public class Main {
 			}
 
 			String consulta = strBuilder.toString();
-
-			/* Ejercico 1 */
-			 sentencia.executeUpdate(consulta);
-			 System.out.println(consulta);
-
-			 /*Ejercicio 2*/
+			
 			main.insertarDatos();
-			main.borrarDatos();
-			main.modificarDatos();
-			 
-			 /*Ejercicio 3*/
-			 PreparedStatement stmt= conexion.prepareStatement("insert into autores values(?,?,?)");  
-			 stmt.setInt(1,9);//1 specifies the first parameter in the query  
-			 stmt.setString(2,"Miguel de cervantes");  
-			 stmt.setString(3,"ESP"); 
-			 stmt.executeUpdate();
-			 
-			 /*Ejercicio 4*/
-			 CallableStatement statement = conexion.prepareCall("{call AutoresESP()}");
-			 ResultSet resul = statement.executeQuery();
 
-			// Recorremos el resultado para visualizar cada fila
-			// Se hace un bucle mientras haya registros y se van visualizando
-			while (resul.next()) {
-				System.out.printf("%d, %s, %s %n", resul.getInt(1), resul.getString(2), resul.getString(3));
-			}
-			System.out.println("NÚMERO DE FILAS: " + resul.getRow());
+//			/* Ejercico 1 */
+//			 sentencia.executeUpdate(consulta);
+//			 System.out.println(consulta);
+//
+//			 /*Ejercicio 2*/
+//			main.insertarDatos();
+//			main.borrarDatos();
+//			main.modificarDatos();
+//			 
+//			 /*Ejercicio 3*/
+//			 PreparedStatement stmt= conexion.prepareStatement("insert into autores values(?,?,?)");  
+//			 stmt.setInt(1,9);//1 specifies the first parameter in the query  
+//			 stmt.setString(2,"Miguel de cervantes");  
+//			 stmt.setString(3,"ESP"); 
+//			 stmt.executeUpdate();
+//			 
+//			 /*Ejercicio 4*/
+//			 CallableStatement statement = conexion.prepareCall("{call AutoresESP()}");
+//			 ResultSet resul = statement.executeQuery();
+//
+//			// Recorremos el resultado para visualizar cada fila
+//			// Se hace un bucle mientras haya registros y se van visualizando
+//			while (resul.next()) {
+//				System.out.printf("%d, %s, %s %n", resul.getInt(1), resul.getString(2), resul.getString(3));
+//			}
+//			System.out.println("NÚMERO DE FILAS: " + resul.getRow());
+//
+//			resul.beforeFirst();
+//			while(resul.next()) {
+//				System.out.printf("Fila %d: %d, %s, %s %n",
+//						resul.getRow() ,
+//						resul.getInt(1) , 
+//						resul.getString(2) , 
+//						resul.getString(3));
+//				
+//				
+//				
+//			}
 
-			resul.beforeFirst();
-			while(resul.next()) {
-				System.out.printf("Fila %d: %d, %s, %s %n",
-						resul.getRow() ,
-						resul.getInt(1) , 
-						resul.getString(2) , 
-						resul.getString(3));
-				
-				
-				
-			}
-
-			resul.close(); // Cerrar ResultSet
+			//resul.close(); // Cerrar ResultSet
 			sentencia.close(); // Cerrar Statement
 			conexion.close(); // Cerrar conexión
 
