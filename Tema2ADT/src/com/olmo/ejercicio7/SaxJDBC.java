@@ -17,16 +17,12 @@ import org.xml.sax.helpers.XMLReaderFactory;
 import com.mysql.jdbc.Statement;
 
 public class SaxJDBC {		
-	public static void main(String[] args)
-              throws FileNotFoundException, IOException, SAXException{
-		
-	
-
+	public void saxJDBC(String archivo) throws FileNotFoundException, IOException, SAXException{
 		
 	 XMLReader  procesadorXML = XMLReaderFactory.createXMLReader();
 	 GestionContenido gestor= new GestionContenido();  
 	 procesadorXML.setContentHandler(gestor);
- 	 InputSource fileXML = new InputSource("Autores.xml");	    
+ 	 InputSource fileXML = new InputSource(archivo);	    
      procesadorXML.parse(fileXML);   
        
       

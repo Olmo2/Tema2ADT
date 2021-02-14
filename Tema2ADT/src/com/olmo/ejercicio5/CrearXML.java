@@ -13,10 +13,10 @@ import java.sql.*;
 
 public class CrearXML {
 
-	static Statement sentencia;
+	Statement sentencia;
 
-	public static void main(String args[]) throws IOException {
-
+	public void crearXML() throws IOException {
+		 
 		// Cargar el driver
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -32,7 +32,7 @@ public class CrearXML {
 		// File file = new File("C:\\Users\\olmo\\Desktop\\libros.sql");
 		String consulta = "SELECT * FROM Autores";
 
-		System.out.println(consulta);
+		//System.out.println(consulta);
 		ResultSet resul = sentencia.executeQuery(consulta);
 		
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
